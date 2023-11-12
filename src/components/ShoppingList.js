@@ -5,8 +5,8 @@ import Filter from "./Filter";
 function ShoppingList({ items }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  function handleCategoryChange(event) {
-    setSelectedCategory(event.target.value);
+  function handleCategoryChange(selectedValue) {
+    setSelectedCategory(selectedValue);
   }
 
   const itemsToDisplay = items.filter((item) => {
@@ -17,7 +17,7 @@ function ShoppingList({ items }) {
 
   return (
     <div className="ShoppingList">
-      <div className="Filter">
+      
         <Filter onCategoryChange={handleCategoryChange}/>
     
       <ul className="Items">
@@ -25,7 +25,7 @@ function ShoppingList({ items }) {
           <Item key={item.id} name={item.name} category={item.category} />
         ))}
       </ul>
-      </div>
+      
     </div>
   );
 }
